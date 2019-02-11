@@ -1,0 +1,95 @@
+	@import url(http://fonts.googleapis.com/earlyaccess/notonastaliqurdudraft.css);
+
+
+	body{
+
+   margin:0;
+   padding:0;
+   background:url(../img/1.jpg);
+   background-size:cover;
+   height:100vh;
+   background-position:center;
+   font-family:sans-serif;
+   background-repeat: no-repeat;
+
+}
+.form-control{
+	text-align: right;
+
+}
+.login-box{
+
+     width:360px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffffab;
+/*    border-radius: 10px;
+*/     top:50%;
+     left:50%;
+     position:absolute;
+     transform:translate(-50%,-50%);
+     box-sizing:border-box;
+    
+}
+.login-box form button {
+	width:90%;
+
+	margin-left:16px;
+	margin-top:12px;
+	padding:15px;
+	text-color:#FFFFFF;
+	background:transparent;
+}
+.login-box form button:hover,.login-box form button:active{
+	background:#43A047;
+}
+.color{
+	color: gray;
+}
+.login-box form button ,a{
+	text-color:#FFFFFF;
+    style:none;
+}
+
+.avatar{
+	width:120px;
+	height:120px;
+	border-radius:50%;
+	position:absolute;
+	top:-50px;
+	left:calc(50%-50px);
+	margin-left:80px;
+}
+.login-box form input{
+	
+	padding:11px;
+	margin :15px;
+	box-sizing:14px;
+	text-align:center;
+	text-size:50px;
+	border:0;
+	width:90%;
+}
+.login-box h1{
+	margin:0;
+	padding:35 0 20px;
+	text-align:center;
+	font-size:22px;
+}
+
+.login-box form input placeholder{
+	text-size:50px;
+}
+.login-box form button a :{
+	text-color:#FFFFFF;
+	text-size:15px;
+}
+
+.row{
+	padding:140px;
+	margin-top:200px;
+}
+
+
+.urdu{ 
+   	font-family: 'Noto Nastaliq Urdu Draft', serif;
+}

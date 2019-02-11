@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome-4/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/dashboard_scripts.js"></script>
+<script>
+        jQuery(document).ready(function($){
+            $.ajax({
+            type: "POST",
+            url:'http://smart.raheraast.com/api/motor.php',
+            //data: {'checkboxValue':value},
+            success: function(data){
+              console.log(data);
+              if (data == 1) {
+               $(".chek").attr('checked', 'checked'); 
+              } else {
+                $(".chek").removeAttr('checked');
+              }
+              
+            }
+            });
+        $("body").on("change", ".chek", function(){
+            var value = '';
+            if ($(this).is(':checked')) {
+                value = '1';
+                
+            } else {
+                value = '0';
+            }
+            $.ajax({
+            type: "POST",
+            url:'http://smart.raheraast.com/onoff.php',
+            data: {'checkboxValue':value},
+            success: function(data){
+              console.log(data);
+              
+            }
+            });
+            
+
+        });
+
+        });
+
+        
+  </script>
+
+</head>
+<body id="pulltorefresh">
+
+<nav class="navbar navbar-inverse" style="margin: 0px">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle " id="nav" onclick="openNav()" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+            <img src="img/logo.png" style="width: 220px" >
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      
+    </div>
+  </div>
+</nav>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="Dashboard.html" ><b><u>Smart Farming</u></b></a>
+  <a href="Dashboard.html">Home</a>
+  <a href="#">About Us</a>
+  <a href="#">Contact Us</a>
+  <a href="index.html">Logout</a>
+</div>
+<!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> -->
+
+<!-- <div class="container">
+    <div class="row siz">
+        <div class="col-sm-12  " onclick="temp()">7 <span style="float: right;">: درجہ حرارت <i class="fa fa-thermometer-half" aria-hidden="true"></i></span></div>
+        <div class="col-sm-12  ">68 <span style="float: right;">: نمی <i class="fa fa-tint" aria-hidden="true"></i></span></div>
+        <div class="col-sm-12  ">769 <span style="float: right;">: پانی کی سطح</span> </div>
+        <div class="col-sm-12  ">79 <span style="float: right;">: مٹی کی نمی</span> </div>
+        <div class="col-sm-12  ">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+              <span style="float: right;">: موٹر</span>
+        </div>
+    </div>
+</div> -->
+<style type="text/css">
+  .icon{
+    font-size: 50px;
+  }
+  .center{
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+  }
+  
+</style>
+
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-xs-12" style="background: #f1f1f1;">
+      <b><h1 style="text-align: center;">ڈیش بورڈ</h1></b>
+
+        <h6 style="color: #000;text-align: right;">   <b>   (موجودہ حیثیت)</b></h6>
+        <h6 style="color: #000;text-align: right;" id="datetime"></h6>
+    </div>
+  </div>
+       
+    <div class="row margin-t">
+      <div class="col-sm-6 col-xs-6 center" style="background: #c71845" onclick="temp()">
+        <i class="fa fa-thermometer-half icon" aria-hidden="true"></i>
+        <h1 id="temp">32 &#8451;</h1>
+        <h3> درجہ حرارت </h3>
+      </div>
+      <div class="col-sm-6 col-xs-6 center" style="background: #50cc9e" onclick="humidity()">
+        <i class="fa fa-percent icon" aria-hidden="true"></i>
+        <h1 id="humidity"> 72 &#65285;</h1>
+        <h3>نمی </h3>
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class="col-sm-6 col-xs-6 center" style="background: #07befa" onclick="water()">
+        <i class="fas fa-water icon" ></i>
+        <h1 id="waterlevel"> 235 </h1>
+        <h3> پانی کی سطح </h3>
+      </div>
+
+      <div class="col-sm-6 col-xs-6 center" style="background: #57463b" onclick="soil()">
+        <i class="fas fa-tint icon"></i>
+        <h1 id="soilmoisture"> 324</h1>
+        <h3> مٹی کی نمی </h3>
+      </div> 
+    </div> 
+    <div class="row">
+      <div class="col-sm-12 col-xs-12" style="background:#f1f1f1; padding: 20px">
+        <label class="switch">
+            <input type="checkbox" class="chek" name="motor" value="on">
+          <span class="slider round"></span>
+        </label>
+        <span style="float: right; font-size: 20px"><b> <span id="moter"> </span>  : موٹر حالت</b></span>
+
+      </div>
+    </div>    
+     
+</div>
+
+
+
+
+<script type="text/javascript" src="js/index.js"></script>
+<script src="js/pulltorefresh.js" type="text/javascript"></script> 
+
+<script> 
+const ptr = PullToRefresh.init({
+  mainElement: 'body',
+  onRefresh() {
+    window.location.reload();
+  },
+});
+
+PullToRefresh.init({
+  mainElement: 'body', // above which element?
+  onRefresh: function (done) {
+    setTimeout(function () {
+      done(); // end pull to refresh
+      //alert('refresh');
+    }, 1500);
+  }
+
+});
+</script>
+
+</body>
+</html>
