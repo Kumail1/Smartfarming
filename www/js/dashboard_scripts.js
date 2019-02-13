@@ -42,9 +42,9 @@ $.ajax({
 
 		 			$('#temp').html(newdata.temp+'&#8451;');
 		 			$('#humidity').html(newdata.humidity+'&#65285;');
-		 			$('#waterlevel').html(newdata.waterlevel);
-		 			$('#soilmoisture').html(newdata.soilmoisture);
-		 			$('#moter').html(newdata.moter);
+		 			$('#waterlevel').html(newdata.waterlevel+'&#13212;');
+		 			$('#soilmoisture').html(newdata.soilmoisture+'&#xFF05;');
+		 			//$('#moter').html(newdata.moter);
 		 			$('#datetime').html(newdata.datetime);
 
 		 		}
