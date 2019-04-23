@@ -36,17 +36,22 @@ $.ajax({
 		 		url:'http://smart.raheraast.com/api/dashboard_server.php',
 		 		type:'post',
 		 		success:function(getdata){
+		 			console.log(getdata);
 		 			  newdata = JSON.parse(getdata);
 		 			  console.log(newdata);
-		 			  
+
 
 		 			$('#temp').html(newdata.temp+'&#8451;');
-		 			$('#humidity').html(newdata.humidity+'&#65285;');
-		 			$('#waterlevel').html(newdata.waterlevel+'&#13212;');
-		 			$('#soilmoisture').html(newdata.soilmoisture+'&#xFF05;');
+		 			$('#humidity').html(newdata.humidity+' &#65285;');
+		 			$('#waterlevel').html(newdata.waterlevel+' &#13212;');
+		 			if (newdata.waterlevel >= 80) {
+		 				alert("پانی کی موٹر بند کرو ");
+		 			}
+		 			$('#soilmoisture').html(newdata.soilmoisture+' &#xFF05;');
 		 			//$('#moter').html(newdata.moter);
 		 			$('#datetime').html(newdata.datetime);
 
 		 		}
 		 	});
 });
+ 
