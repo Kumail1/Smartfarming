@@ -14,6 +14,18 @@
 <script type="text/javascript" src="js/dashboard_scripts.js"></script>
 <script>
         jQuery(document).ready(function($){
+          if (window.localStorage["n"] != null) {
+             //window.location = "pickup_request.html";
+              }
+
+              else{
+            alert("Please login ");
+                
+             window.location = "index.html";
+              }
+              if (window.navigator.onLine == false) {
+          alert("Please Check Your Internet Connection.");
+        }
             $.ajax({
             type: "POST",
             url:'http://smart.raheraast.com/api/motor.php',
@@ -77,9 +89,8 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="Dashboard.html" ><b><u>Smart Farming</u></b></a>
   <a href="Dashboard.html">Home</a>
-  <a href="#">About Us</a>
   <a href="contact.html">Contact Us</a>
-  <a href="index.html">Logout</a>
+   <a onclick="logout()">Logout</a>
 </div>
 <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> -->
 
@@ -130,7 +141,7 @@
       <div class="col-sm-6 col-xs-6 center" style="background: #50cc9e" onclick="humidity()">
         <i class="fa fa-percent icon" aria-hidden="true"></i>
         <h1 id="humidity"> 93 &#65285;</h1>
-        <h3>نمی </h3>
+        <h3>ہوا کی نمی </h3>
       </div>
     </div> 
 

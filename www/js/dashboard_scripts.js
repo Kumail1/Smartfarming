@@ -1,4 +1,13 @@
  jQuery(document).ready(function($){
+ 	if (window.localStorage["n"] != null) {
+             //window.location = "pickup_request.html";
+              }
+
+              else{
+            alert("Please login ");
+                
+             window.location = "index.html";
+              }
 // 	 alert("dasd");
 
 // 	$('#refresh').click(function(event){

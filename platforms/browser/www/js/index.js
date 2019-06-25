@@ -82,6 +82,11 @@ function closeNav() {
 
 
 
-
+function logout()
+                 {
+                    var n = window.localStorage["n"];
+                    var r= window.localStorage.clear(n)
+                    window.location = "index.html";
+                 }
 
 

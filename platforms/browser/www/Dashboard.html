@@ -14,6 +14,18 @@
 <script type="text/javascript" src="js/dashboard_scripts.js"></script>
 <script>
         jQuery(document).ready(function($){
+          if (window.localStorage["n"] != null) {
+             //window.location = "pickup_request.html";
+              }
+
+              else{
+            alert("Please login ");
+                
+             window.location = "index.html";
+              }
+              if (window.navigator.onLine == false) {
+          alert("Please Check Your Internet Connection.");
+        }
             $.ajax({
             type: "POST",
             url:'http://smart.raheraast.com/api/motor.php',
@@ -77,9 +89,8 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="Dashboard.html" ><b><u>Smart Farming</u></b></a>
   <a href="Dashboard.html">Home</a>
-  <a href="#">About Us</a>
-  <a href="#">Contact Us</a>
-  <a href="index.html">Logout</a>
+  <a href="contact.html">Contact Us</a>
+   <a onclick="logout()">Logout</a>
 </div>
 <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> -->
 
@@ -124,36 +135,36 @@
     <div class="row margin-t">
       <div class="col-sm-6 col-xs-6 center" style="background: #c71845" onclick="temp()">
         <i class="fa fa-thermometer-half icon" aria-hidden="true"></i>
-        <h1 id="temp">32 &#8451;</h1>
+        <h1 id="temp">19 &#8451;</h1>
         <h3> درجہ حرارت </h3>
       </div>
       <div class="col-sm-6 col-xs-6 center" style="background: #50cc9e" onclick="humidity()">
         <i class="fa fa-percent icon" aria-hidden="true"></i>
-        <h1 id="humidity"> 72 &#65285;</h1>
-        <h3>نمی </h3>
+        <h1 id="humidity"> 93 &#65285;</h1>
+        <h3>ہوا کی نمی </h3>
       </div>
     </div> 
 
     <div class="row">
       <div class="col-sm-6 col-xs-6 center" style="background: #07befa" onclick="water()">
         <i class="fas fa-water icon" ></i>
-        <h1 id="waterlevel"> 235 </h1>
+        <h1 id="waterlevel"> 0 &#13212; </h1>
         <h3> پانی کی سطح </h3>
       </div>
 
       <div class="col-sm-6 col-xs-6 center" style="background: #57463b" onclick="soil()">
         <i class="fas fa-tint icon"></i>
-        <h1 id="soilmoisture"> 324</h1>
+        <h1 id="soilmoisture"> 0 &#xFF05;</h1>
         <h3> مٹی کی نمی </h3>
       </div> 
     </div> 
     <div class="row">
-      <div class="col-sm-12 col-xs-12" style="background:#f1f1f1; padding: 20px">
-        <label class="switch">
+      <div class="col-sm-12 col-xs-12" style="background:#f1f1f1; padding: 20px;">
+        <label class="switch" style="margin-top: 25px;">
             <input type="checkbox" class="chek" name="motor" value="on">
           <span class="slider round"></span>
         </label>
-        <span style="float: right; font-size: 20px"><b> <span id="moter"> </span>  : موٹر حالت</b></span>
+        <h3 style="float: right; "> پانی کی موٹر </h3>
 
       </div>
     </div>    
